@@ -35,12 +35,9 @@ cd Link-Toolbox
 - Click on the saved AI tool to open the website instantly.
 - Manage and organize frequently used AI tools efficiently.
 
-## 🤝 Contributing
-Feel free to fork this repo and submit pull requests!
-
 ## 📜 License
 This project is licensed under the MIT License.
 
 ---
 
-💡 **Made with ❤️ by [Your Name]**
+💡 **Made with ❤️ by Aravind S Gudi**
