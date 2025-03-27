@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Link ToolBox",
+  "version": "1.0",
+  "description": "Discover and manage AI tools right from your browser - Created by Aravind S Gudi",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "icons": {
+    "16": "images/icon.svg",
+    "48": "images/icon.svg",
+    "128": "images/icon.svg"
+  }
+}
+

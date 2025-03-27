@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Link ToolBox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      width: 400px;
+      height: 600px;
+      padding: 20px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
+      margin: 0;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+      padding: 16px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .creator {
+      font-size: 14px;
+      color: #6B7280;
+      margin: 0;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .nav-button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-button:not(.inactive) {
+      background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.4);
+    }
+
+    .nav-button:hover:not(.inactive) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px -1px rgba(139, 92, 246, 0.5);
+    }
+
+    .nav-button.inactive {
+      background: white;
+      color: #374151;
+      box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .form-group input, #searchInput {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #E5E7EB;
+      border-radius: 12px;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .form-group input:focus, #searchInput:focus {
+      outline: none;
+      border-color: #8B5CF6;
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    }
+
+    .tool-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(139, 92, 246, 0.1);
+    }
+
+    .tool-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
+    }
+
+    .tool-card h3 {
+      margin: 0 0 8px 0;
+      color: #1F2937;
+      font-size: 18px;
+    }
+
+    .tool-card p {
+      margin: 0 0 16px 0;
+      color: #6B7280;
+      font-size: 14px;
+    }
+
+    .tool-card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.4);
+    }
+
+    .tool-card a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px -1px rgba(139, 92, 246, 0.5);
+    }
+
+    #searchInput {
+      margin-bottom: 20px;
+    }
+
+    .views > div {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .views > div.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f4f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Link ToolBox</h1>
+      <p class="creator">Created by Aravind S Gudi</p>
+    </div>
+    
+    <div class="nav-buttons">
+      <button class="nav-button" data-view="list">View Tools</button>
+      <button class="nav-button inactive" data-view="add">Add Tool</button>
+    </div>
+
+    <div class="views">
+      <div id="listView" class="active">
+        <input type="text" id="searchInput" placeholder="Search tools...">
+        <div id="toolsList"></div>
+      </div>
+
+      <div id="addView">
+        <form id="addToolForm">
+          <div class="form-group">
+            <label for="name">Tool Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="url">Tool URL</label>
+            <input type="url" id="url" required>
+          </div>
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" required>
+          </div>
+          <button type="submit" class="nav-button">Add Tool</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
